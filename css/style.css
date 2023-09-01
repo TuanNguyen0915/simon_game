@@ -21,7 +21,7 @@ p {
     font-size: 20px;
 }
 
-
+/*********************** NAVBAR *********************/
 .navbar {
     position: fixed;
     display: flex;
@@ -91,6 +91,7 @@ p {
     }
 }
 
+/*************************** GAME INFO ************************/
 
 .game-info {
     margin-top: 150px;
@@ -222,6 +223,7 @@ p {
     cursor: pointer;
 }
 
+
 /************************ GAME CONTENT *****************/
 #game-content {
     height: 800px;
@@ -307,7 +309,7 @@ p {
 
 
 
-
+/******************* FOOTER *****************/
 footer {
     text-align: right;
     opacity: 0.6;
