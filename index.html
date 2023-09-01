@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="js/app.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./assets/img/simon.ico">
+    <script src="https://kit.fontawesome.com/f9a2af5bd6.js" crossorigin="anonymous"></script>
+    <title>Simon Game</title>
+</head>
+
+<body>
+    <!-- HOME -->
+    <div class="navbar">
+        <div class="navbar-item">
+            <div class="navbar__a">
+                <a href="#">Home</a>
+            </div>
+            <div class="navbar__a">
+                <a href="#game-content">Start Game</a>
+            </div>
+            <div class="navbar__a">
+                <a href="#about-me">About Me</a>
+            </div>
+        </div>
+    </div>
+    <div id="home" class="game-info">
+        <div id="game-desc">
+            <p><span id="span-info">Simon</span> is the game can help people</p>
+
+            <h1 id="game-desc-title">Train Eyes & Brain</h1>
+
+            <p>Looking at the quick flash color will train your eye focus</p>
+            <p>Remember the sequence to train brain memory</p>
+            <!-- nav-button -->
+            <div id="game__a">
+                <a class="game__a" href="#">Start Game</a>
+                <a class="game__a" href="#about-me">About Me</a>
+            </div>
+        </div>
+        <div class="game-img">
+            <img id="img-brain" src="./assets/img/brain.gif" alt="">
+        </div>
+    </div>
+
+
+    <!-- MAIN GAME -->
+    <div id="game-content">
+
+    </div>
+
+    <!-- ABOUT ME -->
+    <div id="about-me">
+        <div class="my-info">
+            <p><span class="const">const</span> <span class="variable">myInformation</span> = &#123 </p>
+            <p>&nbsp &nbsp &nbsp <span class="key-myinfo">firstName : </span> <span class="value-myinfo">"Tuan"</span> ,
+            </p>
+            <p>&nbsp &nbsp &nbsp <span class="key-myinfo">lastName : </span> <span class="value-myinfo">"Nguyen"</span>
+                ,
+            </p>
+            <p>&nbsp &nbsp &nbsp <span class="key-myinfo">location : </span> <span class="value-myinfo">"Quincy,
+                    Massachusetts"</span> ,</p>
+            <p>&nbsp &nbsp &nbsp <span class="key-myinfo">buildThisGame : </span>[<span
+                    class="value-myinfo">"JavaScript"</span>,
+                <span class="value-myinfo">"CSS"</span>,
+                <span class="value-myinfo">"HTML"</span>] ,
+            </p>
+            <!-- GREETING -->
+            <p>&nbsp &nbsp &nbsp <span class="function-myinfo">getGreeting : </span><span class="const">function</span>
+                () &#123
+            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span class="variable">console</span>.<span
+                    class="function-myinfo">log</span>&#40<span class="value-myinfo">`Hello there, I'm</span> <span
+                    class="variable">$&#123</span><span class="key-myinfo">this</span>.<span
+                    class="variable">firstName&#125</span> <span class="variable">$&#123</span> <span
+                    class="key-myinfo">this</span>.<span class="variable">lastName&#125</span><span
+                    class="value-myinfo">. Thank you for
+                    playing Simon.`</span>&#41, </p>
+            <p>&nbsp &nbsp &nbsp <span>&#125 </span></p>
+
+            </p>
+            <!-- SOCIAL -->
+            <p>&nbsp &nbsp &nbsp <span class="key-myinfo">connectWithMe : </span> <span>&#123 </span></p>
+            <!-- github -->
+            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span><i class="social-icon fa-brands fa-github"></i> :
+                </span> <span class="value-myinfo">"<a class="social-link"
+                        href="https://github.com/TuanNguyen0915">github.me</a>"</span> ,
+            </p>
+            <!-- linkedIn -->
+            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span><i class="social-icon fa-brands fa-linkedin-in"></i> :
+                </span> <span class="value-myinfo">"<a class="social-link"
+                        href="https://www.linkedin.com/in/tuan-nguyen-945873289/">linkedin.me</a>"</span> ,</p>
+            <!-- gmail -->
+            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span><i class="social-icon fa-solid fa-inbox"></i> : </span>
+                <span class="value-myinfo">"<a class="social-link"
+                        href="mailto:tuan.nat915@gmail.com">gmail.me</a>"</span> ,
+            </p>
+            <p>&nbsp &nbsp &nbsp <span>&#125 </span></p>
+            <p><span>&#125</span></p>
+            <p><span class="variable">myInformation</span>.<span class="function-myinfo">getGreeting</span>()</p>
+            <!-- PICTURE -->
+        </div>
+        <div class="my-pic">
+            <img src="./assets/img/my_pic2.JPG" alt="">
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>© 2023 Tuan Nguyen</footer>
+</body>
+
+</html>
