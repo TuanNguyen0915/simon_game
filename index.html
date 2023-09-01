@@ -4,10 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONT AND FONT AWESOME -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/f9a2af5bd6.js" crossorigin="anonymous"></script>
+    <!-- JS -->
     <script defer src="js/app.js"></script>
+    <!-- STYLE -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./assets/img/simon.ico">
-    <script src="https://kit.fontawesome.com/f9a2af5bd6.js" crossorigin="anonymous"></script>
     <title>Simon Game</title>
 </head>
 
@@ -36,8 +43,8 @@
             <p>Remember the sequence to train brain memory</p>
             <!-- nav-button -->
             <div id="game__a">
-                <a class="game__a" href="#">Start Game</a>
-                <a class="game__a" href="#about-me">About Me</a>
+                <a class="game__a" href="#game-content">Start Game</a>
+                <!-- <a class="game__a" href="#about-me">About Me</a> -->
             </div>
         </div>
         <div class="game-img">
@@ -48,8 +55,20 @@
 
     <!-- MAIN GAME -->
     <div id="game-content">
-
+        <div class="game-content game-content-top">
+            <div class="game-button" id="green"></div>
+            <div class="game-button" id="red"></div>
+        </div>
+        <div id="message-content">
+            <p>Are you ready?</p>
+        </div>
+        <div class="game-content game-content-bottom">
+            <div class="game-button" id="blue"></div>
+            <div class="game-button" id="yellow"></div>
+        </div>
     </div>
+
+
 
     <!-- ABOUT ME -->
     <div id="about-me">
@@ -67,6 +86,9 @@
                 <span class="value-myinfo">"CSS"</span>,
                 <span class="value-myinfo">"HTML"</span>] ,
             </p>
+            <!-- isProjectDone -->
+            <p>&nbsp &nbsp &nbsp <span class="key-myinfo">isProjectDone : </span><span class="variable">false</span> ,
+            </p>
             <!-- GREETING -->
             <p>&nbsp &nbsp &nbsp <span class="function-myinfo">getGreeting : </span><span class="const">function</span>
                 () &#123
@@ -75,24 +97,27 @@
                     class="variable">$&#123</span><span class="key-myinfo">this</span>.<span
                     class="variable">firstName&#125</span> <span class="variable">$&#123</span> <span
                     class="key-myinfo">this</span>.<span class="variable">lastName&#125</span><span
-                    class="value-myinfo">. Thank you for
-                    playing Simon.`</span>&#41, </p>
+                    class="value-myinfo">. Enjoy the game.`</span>&#41, </p>
             <p>&nbsp &nbsp &nbsp <span>&#125 </span></p>
 
             </p>
             <!-- SOCIAL -->
             <p>&nbsp &nbsp &nbsp <span class="key-myinfo">connectWithMe : </span> <span>&#123 </span></p>
             <!-- github -->
-            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span><i class="social-icon fa-brands fa-github"></i> :
+            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span><a class="social-icon"
+                        href="https://github.com/TuanNguyen0915/simon_game"><i class="fa-brands fa-github"></i></a> :
                 </span> <span class="value-myinfo">"<a class="social-link"
-                        href="https://github.com/TuanNguyen0915">github.me</a>"</span> ,
+                        href="https://github.com/TuanNguyen0915/simon_game">github.me</a>"</span> ,
             </p>
             <!-- linkedIn -->
-            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span><i class="social-icon fa-brands fa-linkedin-in"></i> :
+            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span> <a class="social-icon"
+                        href="https://www.linkedin.com/in/tuan-nguyen-945873289/"><i
+                            class="fa-brands fa-linkedin-in"></i> :</a>
                 </span> <span class="value-myinfo">"<a class="social-link"
                         href="https://www.linkedin.com/in/tuan-nguyen-945873289/">linkedin.me</a>"</span> ,</p>
             <!-- gmail -->
-            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span><i class="social-icon fa-solid fa-inbox"></i> : </span>
+            <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span><a class="social-icon" href="mailto:tuan.nat915@gmail.com"><i
+                            class="fa-solid fa-inbox"></i></a> : </span>
                 <span class="value-myinfo">"<a class="social-link"
                         href="mailto:tuan.nat915@gmail.com">gmail.me</a>"</span> ,
             </p>
