@@ -278,41 +278,87 @@ body {
 
 #message-content {
     display: flex;
-    margin: 0 5px;
+    margin: 5px;
     justify-content: center;
     align-items: center;
     font-size: 48px;
     background: linear-gradient(-45deg, #ee765222, #e73c7e3b, #23a5d52e, #23d5ab5f);
     background-size: 400% 400%;
     animation: bgGradient 8s ease infinite;
+    backdrop-filter: blur(4px);
+}
+
+#message-content:hover {
+    color: orange;
+    cursor: pointer;
 }
 
 .game-button {
-    margin: 5px;
+    margin: 10px;
 }
 
-#green {
+.green {
+    /* background-color: #7eba01; */
+    background-color: #B3E5BE;
+    border-radius: 100% 0 0 0;
+    width: 50%;
+    box-shadow: 0 10px 2px #999;
+}
+
+.green:active,
+.green-active {
+    transform: translateY(5px);
     background-color: #7eba01;
-    border-radius: 50% 0 0 0;
-    width: 50%;
+    box-shadow: 0 5px 1px #666;
+
 }
 
-#red {
+.red {
+    /* background-color: #f25022; */
+    background-color: #FD8A8A;
+    border-radius: 0 100% 0 0;
+    width: 50%;
+    box-shadow: 0 10px 2px #999;
+}
+
+.red:active,
+.red-active {
+    transform: translateY(5px);
     background-color: #f25022;
-    border-radius: 0 50% 0 0;
-    width: 50%;
+    box-shadow: 0 5px 1px #666;
 }
 
-#blue {
+.blue {
+    /* background-color: #2fa4ee; */
+    background-color: #6096B4;
+    border-radius: 0 0 0 100%;
+    width: 50%;
+    box-shadow: 0 -10px 2px #999;
+}
+
+.blue:active,
+.blue-active {
+    transform: translateY(-5px);
     background-color: #2fa4ee;
-    border-radius: 0 0 0 50%;
-    width: 50%;
+    box-shadow: 0 -5px 1px #999;
+
 }
 
-#yellow {
-    background-color: #fbb903;
-    border-radius: 0 0 50% 0;
+
+
+.yellow {
+    /* background-color: #fbb903; */
+    background-color: #F1F7B5;
+    border-radius: 0 0 100% 0;
     width: 50%;
+    box-shadow: 0 -10px 2px #999;
+}
+
+.yellow:active,
+.yellow-active {
+    transform: translateY(-5px);
+    background-color: #fbb903;
+    box-shadow: 0 -5px 1px #999;
 }
 
 /*********************** CONTACT ME ********************/
@@ -335,6 +381,7 @@ body {
     margin-right: 30px;
     border-left: 2px solid #00afb9;
     border-bottom: 2px solid #00afb9;
+    backdrop-filter: blur(3px);
     /* border-left: 2px solid rgba(255, 165, 0, 0.5);
     border-bottom: 2px solid rgba(255, 165, 0, 0.5); */
 }
