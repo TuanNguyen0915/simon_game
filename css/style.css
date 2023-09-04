@@ -44,7 +44,7 @@ body {
     backdrop-filter: blur(12px);
     z-index: 1;
     /* black background */
-    background: linear-gradient(-45deg, #00000080, #0000001a);
+    /* background: linear-gradient(-45deg, #00000080, #0000001a); */
     /* Background gradient colorful and blur */
     background: linear-gradient(-45deg, #ee765222, #e73c7e3b, #23a5d52e, #23d5ab5f);
     /* background: linear-gradient(-45deg, #00afb9, #121f2b, #a78f746a, #493002cc); */
@@ -261,13 +261,16 @@ body {
 
 
 /************************ GAME CONTENT *****************/
+#game-on {
+    height: 100px;
+    margin-top: 250px;
+}
+
 #game-content {
-    /* display: flex; */
-    margin: 350px auto;
-    height: 800px;
-    width: 80%;
-    background: none;
-    /* display: flex; */
+    margin: 0 auto 350px auto;
+    height: 600px;
+    width: 60%;
+    /* background: none; */
 }
 
 .game-content {
@@ -278,9 +281,11 @@ body {
 
 #message-content {
     display: flex;
+    flex-direction: column;
     margin: 5px;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 48px;
     background: linear-gradient(-45deg, #ee765222, #e73c7e3b, #23a5d52e, #23d5ab5f);
     background-size: 400% 400%;
@@ -294,7 +299,7 @@ body {
 }
 
 .game-button {
-    margin: 10px;
+    margin: 10px 5px;
 }
 
 .green {
@@ -302,10 +307,10 @@ body {
     background-color: #B3E5BE;
     border-radius: 100% 0 0 0;
     width: 50%;
-    box-shadow: 0 10px 2px #999;
+    box-shadow: 0 10px 1px #666;
 }
 
-.green:active,
+.green-click:active,
 .green-active {
     transform: translateY(5px);
     background-color: #7eba01;
@@ -318,10 +323,10 @@ body {
     background-color: #FD8A8A;
     border-radius: 0 100% 0 0;
     width: 50%;
-    box-shadow: 0 10px 2px #999;
+    box-shadow: 0 10px 1px #666;
 }
 
-.red:active,
+.red-click:active,
 .red-active {
     transform: translateY(5px);
     background-color: #f25022;
@@ -333,14 +338,14 @@ body {
     background-color: #6096B4;
     border-radius: 0 0 0 100%;
     width: 50%;
-    box-shadow: 0 -10px 2px #999;
+    box-shadow: 0 -10px 1px #666;
 }
 
-.blue:active,
+.blue-click:active,
 .blue-active {
     transform: translateY(-5px);
     background-color: #2fa4ee;
-    box-shadow: 0 -5px 1px #999;
+    box-shadow: 0 -5px 1px #666;
 
 }
 
@@ -351,10 +356,10 @@ body {
     background-color: #F1F7B5;
     border-radius: 0 0 100% 0;
     width: 50%;
-    box-shadow: 0 -10px 2px #999;
+    box-shadow: 0 -10px 2px #666;
 }
 
-.yellow:active,
+.yellow-click:active,
 .yellow-active {
     transform: translateY(-5px);
     background-color: #fbb903;
@@ -449,4 +454,9 @@ footer {
     text-align: center;
     opacity: 0.6;
     margin-bottom: 20px;
+}
+
+/******************* JS *****************/
+.none-background {
+    background: none;
 }
