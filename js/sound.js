@@ -1,24 +1,22 @@
 function red() {
     let audio = new Audio("../assets/sounds/red.mp3")
-    // audio.volume = .5
+    audio.volume = .4
     audio.play()
 }
 
 function blue() {
     let audio = new Audio("../assets/sounds/blue.wav")
-    // audio.volume = .5
     audio.play()
 }
 
 function yellow() {
     let audio = new Audio("../assets/sounds/yellow.mp3")
-    // audio.volume = .5
+    audio.volume = .7
     audio.play()
 }
 
 function green() {
     let audio = new Audio("../assets/sounds/green.wav")
-    audio.volume = .5
     audio.play()
 }
 

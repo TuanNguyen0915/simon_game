@@ -1,14 +1,16 @@
 import * as gameSounds from "./sound.js"
 /********************* Constant and Variable *********************/
 const colors = ["green", "red", "yellow", "blue"]
-
 let computerSequence = [], playerSequence = []
-let level = 1, isGameOn = false, speedUp = 1
+let level = 1, isGameOn = false, speedUp = 1, mode = "normal"
 /********************* Document Element *********************/
 const startGameEle = document.querySelector("#message-content")
+//* Set the message content after select game mode
+if (mode === "hard") {
+    startGameEle.textContent = "Test the sound, then click me to start"
+}
 const navbarEle = document.querySelector(".navbar")
 const gameButtons = document.querySelectorAll(".game-button")
-
 
 /********************* Event Listener *********************/
 startGameEle.addEventListener("click", startGame)
@@ -19,30 +21,12 @@ gameButtons.forEach(button => {
 })
 
 
-
-function activeButton() {
-    //* Active the button click effect when game is running
-    gameButtons.forEach(button => {
-        let color = button.getAttribute("id")
-        button.classList.add(`${color}-click`)
-    })
-}
-
-function deactivateButton() {
-    //* Deactivate the button effect when game is not running
-    gameButtons.forEach(button => {
-        let color = button.getAttribute("id")
-        button.classList.remove(`${color}-click`)
-    })
-}
 /********************* Function *********************/
 
 function startGame() {
     //* Click the message to run render
-
-    //Deactivate click message to avoid reset game
     startGameEle.removeEventListener("click", startGame)
-    //Change navbar background to help player focus to playing game
+    // Remove navbar background to help player can focus the game
     navbarEle.classList.add("none-background")
     isGameOn = true
     // MAIN LOOP
@@ -54,12 +38,25 @@ function render() {
         // Active the button for player
         activeButton()
         //Render the message based on current level
-        startGameEle.textContent = `Level: ${level}`
-        setTimeout(computerTurn, 2000 / speedUp)
+        startGameEle.textContent = `level: ${level}`
+        //The computerTurn will invoke based on mode
+        if (mode === 'normal') {
+            setTimeout(computerTurnNormalMode, 2000 / speedUp)
+        } else if (mode === "hard") {
+            setTimeout(computerTurnHardMode, 2000 / speedUp)
+        }
     }
 }
 
-function computerTurn() {
+function playSounds(btnColor) {
+    //* Play the button color corresponding button color
+    if (btnColor === 'red') { gameSounds.red() }
+    else if (btnColor === 'blue') { gameSounds.blue() }
+    else if (btnColor === 'yellow') { gameSounds.yellow() }
+    else if (btnColor === 'green') { gameSounds.green() }
+}
+
+function computerTurnNormalMode() {
     /*
     * Select the button by random colors then add to computerSequence
     * play sound effect, and add click button effect
@@ -67,10 +64,7 @@ function computerTurn() {
     let pickColor = colors[Math.floor(Math.random() * 4)]
     computerSequence.push(pickColor)
     //* play sound with corresponding color
-    if (pickColor === 'red') { gameSounds.red() }
-    else if (pickColor === 'blue') { gameSounds.blue() }
-    else if (pickColor === 'yellow') { gameSounds.yellow() }
-    else if (pickColor === 'green') { gameSounds.green() }
+    playSounds(pickColor)
     //* Add active class to element and remove after 1 second
     let buttColor = document.getElementById(pickColor)
     buttColor.classList.add(`${pickColor}-active`)
@@ -80,20 +74,40 @@ function computerTurn() {
     console.log(computerSequence);
 }
 
+function computerTurnHardMode() {
+    let pickColor = colors[Math.floor(Math.random() * 4)]
+    computerSequence.push(pickColor)
+    playSounds(pickColor)
+    console.log(computerSequence);
+}
+
 function playerClick(evt) {
     /*
     * Clicking the color button, then add to playerSequence, then compare to computerSequence
     */
-    if (isGameOn) {
+    if (!isGameOn && mode === 'hard') {
+        // playerSequence.push(evt.target.id)
+        let pickColor = evt.target.id
+        playSounds(pickColor)
+        let buttColor = document.getElementById(pickColor)
+        buttColor.classList.add(`${pickColor}-active`)
+        setTimeout(() => {
+            buttColor.classList.remove(`${pickColor}-active`)
+        }, 200 / speedUp)
+    }
+    else if (isGameOn) {
         playerSequence.push(evt.target.id)
         // console.log(playerSequence);
         for (let i = 0; i < playerSequence.length; i++) {
             compare(playerSequence[i], computerSequence[i])
             // Go to nextRound if playerSequence and computerSequence are matching
             if (playerSequence.length === computerSequence.length) {
+                compare(playerSequence[computerSequence.length - 1], computerSequence[computerSequence.length - 1])
                 nextRound()
             }
         }
+    } else if (!isGameOn) {
+        deactivateButton()
     }
 }
 
@@ -152,4 +166,20 @@ function gameOver() {
 function handleNavbar() {
     //* Remove the color navbar background
     navbarEle.classList.remove("none-background")
+}
+
+function activeButton() {
+    //* Active the button click effect when game is running
+    gameButtons.forEach(button => {
+        let color = button.getAttribute("id")
+        button.classList.add(`${color}-click`)
+    })
+}
+
+function deactivateButton() {
+    //* Deactivate the button effect when game is not running
+    gameButtons.forEach(button => {
+        let color = button.getAttribute("id")
+        button.classList.remove(`${color}-click`)
+    })
 }
