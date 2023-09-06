@@ -3,25 +3,39 @@ import * as gameSounds from "./sound.js"
 const colors = ["green", "red", "yellow", "blue"]
 let computerSequence = [], playerSequence = []
 let level = 1, isGameOn = false, speedUp = 1, mode = "normal"
+console.log(mode);
+
 /********************* Document Element *********************/
 const startGameEle = document.querySelector("#message-content")
 //* Set the message content after select game mode
-if (mode === "hard") {
-    startGameEle.textContent = "Test the sound, then click me to start"
-}
 const navbarEle = document.querySelector(".navbar")
 const gameButtons = document.querySelectorAll(".game-button")
+const gameOptionMode = document.querySelectorAll(".game-option-mode")
 
 /********************* Event Listener *********************/
 startGameEle.addEventListener("click", startGame)
 navbarEle.addEventListener("click", handleNavbar)
 
+gameOptionMode.forEach(option => option.addEventListener("click", selectMode))
+
 gameButtons.forEach(button => {
     button.addEventListener("click", playerClick)
 })
 
+/********************* Select Game Mode *********************/
+
 
 /********************* Function *********************/
+
+function selectMode(evt) {
+    mode = evt.target.id
+    if (mode === "hard") {
+        startGameEle.textContent = "Test the sound, then click me to start"
+        startGameEle.style.fontSize = "42px"
+    } else {
+        startGameEle.textContent = "Click me to start the game"
+    }
+}
 
 function startGame() {
     //* Click the message to run render
@@ -86,7 +100,6 @@ function playerClick(evt) {
     * Clicking the color button, then add to playerSequence, then compare to computerSequence
     */
     if (!isGameOn && mode === 'hard') {
-        // playerSequence.push(evt.target.id)
         let pickColor = evt.target.id
         playSounds(pickColor)
         let buttColor = document.getElementById(pickColor)
@@ -104,7 +117,7 @@ function playerClick(evt) {
             if (playerSequence.length === computerSequence.length) {
                 compare(playerSequence[computerSequence.length - 1], computerSequence[computerSequence.length - 1])
                 nextRound()
-            }
+            } else break
         }
     } else if (!isGameOn) {
         deactivateButton()
@@ -131,7 +144,7 @@ function nextRound() {
     playerSequence = []
     if (level % 5 === 0) {
         speedUp++
-        setTimeout(render, 2000)
+        setTimeout(render, 1000)
         gameSounds.next5Level()
     } else {
         gameSounds.nextRound()
