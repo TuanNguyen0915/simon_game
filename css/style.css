@@ -135,7 +135,8 @@ body {
     animation: changeColor 5s ease alternate infinite;
 }
 
-#game__a {
+#game__a,
+.game-option-mode {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -146,7 +147,8 @@ body {
     padding: 0;
 }
 
-.game__a {
+.game__a,
+.modes {
     font-size: 24px;
     text-decoration: none;
     background: #121f2b;
@@ -159,41 +161,80 @@ body {
     transform: translateY(20px);
 }
 
-.game__a:hover {
+.mode {
+    transform: translateY(0);
+}
+
+.game__a:hover,
+.modes:hover {
     color: #e1bb90;
 
     box-shadow: inset 30vmin 0 0 #00000080;
     cursor: pointer;
 }
 
-/************************ GAME CONTENT *****************/
+/************************ GAME RULE *****************/
 #game-rule-section {
-    width: 80%;
+    width: 60%;
     display: flex;
     text-align: center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: 350px auto 100px auto;
     backdrop-filter: blur(3px);
 }
 
-
+.game-option-mode {
+    border-bottom: 2px solid #00afb9;
+}
 
 .game-mode-title {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
-.game-mode-desc {
-    text-align: justify;
+.gr-h1 {
+    opacity: 0.4;
 }
+
+.gr-h1.gr-active {
+    color: #00afb9;
+    border-bottom: 3px solid #ffa500cc;
+    animation: typing-cursor 1s infinite;
+    opacity: 1;
+}
+
+#gr-desc {
+    color: #ccc;
+    margin-top: 20px;
+    min-height: 150px;
+    width: 100%;
+}
+
+.gr-desc {
+    text-align: justify;
+    font-size: 20px;
+    display: none;
+}
+
+.show-content {
+    display: block;
+}
+
+#game-rule:hover,
+#game-normal-mode:hover,
+#game-hard-mode:hover {
+    cursor: pointer;
+    opacity: 1;
+    color: #ffa500cc;
+}
+
+/************************ GAME CONTENT *****************/
 
 #game-content {
     margin: 0 auto 350px auto;
     height: 600px;
     width: 60%;
-    /* background: none; */
 }
 
 .game-content {
@@ -467,36 +508,4 @@ footer {
     margin: 0 15%;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-} */
-
-
-/* .gr-desc {
-    text-align: justify;
-    font-size: 18px;
-    display: none;
-}
-
-.show-content {
-    display: block;
-}
-
-.game-rule-mode {
-    display: flex;
-    flex-direction: column;
-}
-
-
-.gr-active {
-    border-bottom: 1px solid #ffa500cc;
-    padding-bottom: 0;
-    margin-bottom: 10px;
-    animation: typing-cursor 1s infinite;
-}
-
-#game-rule:hover,
-#game-normal-mode:hover,
-#game-hard-mode:hover {
-    cursor: pointer;
-    opacity: 1;
-    color: #ffa500cc;
 } */

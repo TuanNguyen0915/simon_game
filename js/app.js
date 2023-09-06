@@ -3,7 +3,6 @@ import * as gameSounds from "./sound.js"
 const colors = ["green", "red", "yellow", "blue"]
 let computerSequence = [], playerSequence = []
 let level = 1, isGameOn = false, speedUp = 1, mode = "normal"
-console.log(mode);
 
 /********************* Document Element *********************/
 const startGameEle = document.querySelector("#message-content")
@@ -11,21 +10,33 @@ const startGameEle = document.querySelector("#message-content")
 const navbarEle = document.querySelector(".navbar")
 const gameButtons = document.querySelectorAll(".game-button")
 const gameOptionMode = document.querySelectorAll(".game-option-mode")
+const gameRuleEles = document.querySelectorAll(".gr-h1")
+const gameRuleDecsEles = document.querySelectorAll(".gr-desc")
 
 /********************* Event Listener *********************/
 startGameEle.addEventListener("click", startGame)
 navbarEle.addEventListener("click", handleNavbar)
 
-gameOptionMode.forEach(option => option.addEventListener("click", selectMode))
-
 gameButtons.forEach(button => {
     button.addEventListener("click", playerClick)
 })
 
-/********************* Select Game Mode *********************/
+gameRuleEles.forEach((el, idx) => {
+    el.addEventListener("click", () => {
+        //Remove class show-content from gameRuleDecs
+        document.querySelector(".gr-h1.gr-active").classList.remove("gr-active")
+        //add gr-active class when clicking
+        el.classList.add("gr-active")
 
+        document.querySelector(".gr-desc.show-content").classList.remove("show-content")
+        gameRuleDecsEles[idx].classList.add("show-content")
+    })
+})
+/********************* Select Game Mode *********************/
+gameOptionMode.forEach(option => option.addEventListener("click", selectMode))
 
 /********************* Function *********************/
+
 
 function selectMode(evt) {
     mode = evt.target.id
@@ -85,14 +96,15 @@ function computerTurnNormalMode() {
     setTimeout(() => {
         buttColor.classList.remove(`${pickColor}-active`)
     }, 200 / speedUp)
-    console.log(computerSequence);
 }
 
 function computerTurnHardMode() {
+    /*
+    * Working the same with normal mode, but buttons don't have flashing effect
+    */
     let pickColor = colors[Math.floor(Math.random() * 4)]
     computerSequence.push(pickColor)
     playSounds(pickColor)
-    console.log(computerSequence);
 }
 
 function playerClick(evt) {
@@ -125,14 +137,12 @@ function playerClick(evt) {
 }
 
 
-
 function compare(computer, player) {
     //* game over if player doest match with computer sequence, continue next index otherwise
     if (computer != player) {
         gameOver()
     } else return
 }
-
 
 
 function nextRound() {
@@ -173,7 +183,6 @@ function gameOver() {
     speedUp = 1
     computerSequence = []
     playerSequence = []
-
 }
 
 function handleNavbar() {
