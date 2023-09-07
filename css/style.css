@@ -201,9 +201,10 @@ body {
 
 .gr-h1.gr-active {
     color: #00afb9;
-    border-bottom: 3px solid #ffa500cc;
+    border-bottom: 2px solid #ffa500cc;
     animation: typing-cursor 1s infinite;
     opacity: 1;
+    transition: 1s ease-in-out;
 }
 
 #gr-desc {
