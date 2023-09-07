@@ -46,6 +46,9 @@ function selectMode(evt) {
     } else {
         startGameEle.textContent = "Click me to start the game"
     }
+    computerSequence = [], playerSequence = []
+    level = 1, isGameOn = false, speedUp = 1
+    startGameEle.addEventListener("click", startGame)
 }
 
 function startGame() {

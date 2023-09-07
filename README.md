@@ -31,11 +31,13 @@
 
 # Technologies
 
-## JavaScript
+### JavaScript
 
-## HTML
+### HTML
 
-## CSS
+### CSS
+
+#
 
 # Next Steps
 
