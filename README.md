@@ -3,7 +3,7 @@
 
 # Simon Game
 
-### Simon is the game can help people Train Eyes & Brain
+#### Simon is the game can help people Train Eyes & Brain
 
 #### Looking at the quick flash color will train your eye focus
 
@@ -13,9 +13,9 @@
 
 # Getting Started
 
-### Playing game [here.](https://tuanng-simon.netlify.app/)
+#### Playing game [here.](https://tuanng-simon.netlify.app/)
 
-### Extra information
+#### Extra information
 
 #### Game have 2 mode, normal is default and hard mode is more challenge
 
@@ -28,6 +28,8 @@
 #### Social-icon: [fontawesome](https://fontawesome.com/)
 
 #### Sound: [freesound.org](https://freesound.org/)
+
+#### CSS: [animation](https://www.w3schools.com/css/css3_animations.asp)
 
 # Technologies
 
