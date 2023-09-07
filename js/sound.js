@@ -1,6 +1,6 @@
 function red() {
     let audio = new Audio("../assets/sounds/red.mp3")
-    audio.volume = .4
+    audio.volume = .2
     audio.play()
 }
 
@@ -17,6 +17,7 @@ function yellow() {
 
 function green() {
     let audio = new Audio("../assets/sounds/green.wav")
+    audio.volume = .8
     audio.play()
 }
 
@@ -28,13 +29,13 @@ function next5Level() {
 
 function nextRound() {
     let audio = new Audio("../assets/sounds/success.mp3")
-    audio.volume = .5
+    audio.volume = .05
     audio.play()
 }
 
 function gameOver() {
     let audio = new Audio("../assets/sounds/game-over.wav")
-    audio.volume = .5
+    audio.volume = .4
     audio.play()
 }
 

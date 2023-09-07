@@ -6,7 +6,6 @@ let level = 1, isGameOn = false, speedUp = 1, mode = "normal"
 
 /********************* Document Element *********************/
 const startGameEle = document.querySelector("#message-content")
-//* Set the message content after select game mode
 const navbarEle = document.querySelector(".navbar")
 const gameButtons = document.querySelectorAll(".game-button")
 const gameOptionMode = document.querySelectorAll(".game-option-mode")
@@ -22,52 +21,56 @@ gameButtons.forEach(button => {
 })
 
 gameRuleEles.forEach((el, idx) => {
+    /*
+        * Remove class show-content from gameRuleDecs and gr-desc
+        * Add gr-active class and show-content when clicking
+    */
     el.addEventListener("click", () => {
-        //Remove class show-content from gameRuleDecs
         document.querySelector(".gr-h1.gr-active").classList.remove("gr-active")
-        //add gr-active class when clicking
         el.classList.add("gr-active")
 
         document.querySelector(".gr-desc.show-content").classList.remove("show-content")
         gameRuleDecsEles[idx].classList.add("show-content")
     })
 })
+
 /********************* Select Game Mode *********************/
-gameOptionMode.forEach(option => option.addEventListener("click", selectMode))
-
-/********************* Function *********************/
-
-
-function selectMode(evt) {
+gameOptionMode.forEach(option => option.addEventListener("click", (evt) => {
+    /*
+        * Choose the game mode and play with the corresponding mode
+        * Change the message based on game mode
+        * While playing, player can choose game mode and reset all variables to default like reset game
+    */
     mode = evt.target.id
-    if (mode === "hard") {
-        startGameEle.textContent = "Test the sound, then click me to start"
-        startGameEle.style.fontSize = "42px"
-    } else {
-        startGameEle.textContent = "Click me to start the game"
-    }
+    startGameEle.textContent = mode === "hard" ? "Test the sound, then click me to start" : "Click me to start the game"
     computerSequence = [], playerSequence = []
     level = 1, isGameOn = false, speedUp = 1
     startGameEle.addEventListener("click", startGame)
-}
+}))
+
+
+/********************* Function *********************/
 
 function startGame() {
-    //* Click the message to run render
+    /*
+        * Click the message to run render, then remove the eventlistener to avoid mistake
+        * Remove navbar background to help player can focus the game
+        * render game
+    */
     startGameEle.removeEventListener("click", startGame)
-    // Remove navbar background to help player can focus the game
     navbarEle.classList.add("none-background")
     isGameOn = true
-    // MAIN LOOP
     render()
 }
 
 function render() {
+    /*
+        * Render the message based on the current level
+        * The computerTurn will invoke based on mode
+    */
     if (isGameOn) {
-        // Active the button for player
         activeButton()
-        //Render the message based on current level
         startGameEle.textContent = `level: ${level}`
-        //The computerTurn will invoke based on mode
         if (mode === 'normal') {
             setTimeout(computerTurnNormalMode, 2000 / speedUp)
         } else if (mode === "hard") {
@@ -76,25 +79,19 @@ function render() {
     }
 }
 
-function playSounds(btnColor) {
-    //* Play the button color corresponding button color
-    if (btnColor === 'red') { gameSounds.red() }
-    else if (btnColor === 'blue') { gameSounds.blue() }
-    else if (btnColor === 'yellow') { gameSounds.yellow() }
-    else if (btnColor === 'green') { gameSounds.green() }
-}
 
 function computerTurnNormalMode() {
     /*
     * Select the button by random colors then add to computerSequence
-    * play sound effect, and add click button effect
+    * play sound effect, and add click button effect based on color button
+    * Add active class to element and remove to make flashing effect
     */
     let pickColor = colors[Math.floor(Math.random() * 4)]
     computerSequence.push(pickColor)
-    //* play sound with corresponding color
+
     playSounds(pickColor)
-    //* Add active class to element and remove after 1 second
     let buttColor = document.getElementById(pickColor)
+
     buttColor.classList.add(`${pickColor}-active`)
     setTimeout(() => {
         buttColor.classList.remove(`${pickColor}-active`)
@@ -112,7 +109,8 @@ function computerTurnHardMode() {
 
 function playerClick(evt) {
     /*
-    * Clicking the color button, then add to playerSequence, then compare to computerSequence
+    * Clicking the color button, then add to playerSequence, then compare to computerSequence after click
+    * With game mode = hard, player can test the sound effect, then click to message to play game
     */
     if (!isGameOn && mode === 'hard') {
         let pickColor = evt.target.id
@@ -125,29 +123,27 @@ function playerClick(evt) {
     }
     else if (isGameOn) {
         playerSequence.push(evt.target.id)
-        // console.log(playerSequence);
-        for (let i = 0; i < playerSequence.length; i++) {
-            compare(playerSequence[i], computerSequence[i])
-            // Go to nextRound if playerSequence and computerSequence are matching
-            if (playerSequence.length === computerSequence.length) {
-                compare(playerSequence[computerSequence.length - 1], computerSequence[computerSequence.length - 1])
-                nextRound()
-            } else break
-        }
-    } else if (!isGameOn) {
-        deactivateButton()
+        let lastIdx = playerSequence.length - 1
+        compare(computerSequence[lastIdx], playerSequence[lastIdx])
+        // Go to nextRound if playerSequence and computerSequence are matching
+        if (playerSequence.length === computerSequence.length) nextRound()
     }
+    else if (!isGameOn) deactivateButton()
 }
 
 
 function compare(computer, player) {
-    //* game over if player doest match with computer sequence, continue next index otherwise
-    if (computer != player) {
-        gameOver()
-    } else return
+    if (player != computer) gameOver()
+    return
 }
 
-
+function playSounds(btnColor) {
+    //* Play the button color corresponding button color
+    if (btnColor === 'red') gameSounds.red()
+    else if (btnColor === 'blue') gameSounds.blue()
+    else if (btnColor === 'yellow') gameSounds.yellow()
+    else if (btnColor === 'green') gameSounds.green()
+}
 function nextRound() {
     /*
     * Increase level, and re-render the main loop
@@ -175,13 +171,10 @@ function gameOver() {
     */
     gameSounds.gameOver()
     deactivateButton()
-    startGameEle.innerHTML = `Game Over`
-    let pEle = document.createElement("p")
-    pEle.textContent = "Click me to reset"
-    startGameEle.appendChild(pEle)
+    startGameEle.textContent = "Game Over. Click me to reset"
     startGameEle.addEventListener("click", startGame)
     isGameOn = false
-    //------------
+    //Reset all variables to default
     level = 0
     speedUp = 1
     computerSequence = []

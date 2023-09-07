@@ -25,8 +25,6 @@ body {
 /*********************** NAVBAR *********************/
 .navbar {
     position: fixed;
-    display: flex;
-    flex-wrap: wrap;
     top: 0;
     left: 0;
     right: 0;
@@ -34,6 +32,7 @@ body {
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(12px);
+    display: flex;
     z-index: 1;
     /* black background */
     /* background: linear-gradient(-45deg, #00000080, #0000001a); */
@@ -44,12 +43,15 @@ body {
     animation: bgGradient 8s ease infinite;
 }
 
+
 .navbar-item {
     display: flex;
-    height: 100%;
+    flex-wrap: wrap;
+    /* height: 100%; */
     justify-content: center;
     align-items: center;
 }
+
 
 .navbar__a {
     display: flex;
@@ -207,7 +209,7 @@ body {
 #gr-desc {
     color: #ccc;
     margin-top: 20px;
-    min-height: 150px;
+    min-height: 100px;
     width: 100%;
 }
 
@@ -250,7 +252,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 48px;
+    font-size: 36px;
     background: linear-gradient(-45deg, #ee765222, #e73c7e3b, #23a5d52e, #23d5ab5f);
     background-size: 400% 400%;
     animation: bgGradient 8s ease infinite;
@@ -424,6 +426,10 @@ footer {
     display: block;
 }
 
+.font-smaller {
+    font-size: 12px;
+}
+
 /******************* KEYFRAMES *****************/
 @keyframes typing-cursor {
 
@@ -509,3 +515,102 @@ footer {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 } */
+
+
+/******************* Mobile View *****************/
+@media only screen and (min-width: 1000px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .navbar {
+        margin-bottom: 100px;
+        height: 80px;
+    }
+
+    .navbar__a {
+        display: inline-flex;
+    }
+
+    .menu-icon {
+        margin-right: 20px;
+    }
+
+    .navbar__a>a {
+        font-size: 12px;
+    }
+
+    #img-brain {
+        display: none;
+    }
+
+    #game-desc p {
+        font-size: 16px;
+    }
+
+    #span-info {
+        font-size: 32px;
+        margin-right: 20px;
+    }
+
+    #game-desc-title {
+        font-size: 36px;
+    }
+
+    #game-rule-section {
+        margin-top: 150px;
+        width: 100%;
+    }
+
+    #game-rule-section .game-mode-title {
+        font-size: 12px;
+    }
+
+    #gr-desc {
+        min-height: 100px;
+    }
+
+    #gr-desc p {
+        font-size: 12px;
+    }
+
+    .game-option-mode {
+        border: none;
+    }
+
+    #game-rule-section .modes {
+        font-size: 16px;
+        transform: translateY(0);
+    }
+
+    #game-content {
+        height: 300px;
+    }
+
+    #message-content {
+        font-size: 12px;
+    }
+
+    .game-button {
+        height: 100px;
+    }
+
+    .game-content-top {
+        height: 120px;
+    }
+
+    .game-content-bottom {
+        height: 120px;
+    }
+
+    .my-info {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    #my-pic {
+        display: none;
+    }
+}
