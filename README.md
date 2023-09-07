@@ -15,34 +15,42 @@
 
 #### Playing game [here.](https://tuanng-simon.netlify.app/)
 
-#### Extra information
-
 #### Game have 2 mode, normal is default and hard mode is more challenge
 
 #
 
 # Attributions
 
-#### Font: [Josefin](https://fonts.google.com/specimen/Josefin+Sans?query=Josefin)
+#### Font:
 
-#### Social-icon: [fontawesome](https://fontawesome.com/)
+- [Josefin](https://fonts.google.com/specimen/Josefin+Sans?query=Josefin)
 
-#### Sound: [freesound.org](https://freesound.org/)
+#### Social-icon:
 
-#### CSS: [animation](https://www.w3schools.com/css/css3_animations.asp)
+- [fontawesome](https://fontawesome.com/)
 
-# Technologies
+#### Sound:
 
-### JavaScript
+- [freesound.org](https://freesound.org/)
 
-### HTML
+#### CSS:
 
-### CSS
+- [CSS animation](https://www.w3schools.com/css/css3_animations.asp)
 
 #
 
-# Next Steps
+#
 
-#### Add dark-light mode
+# Technologies Used
 
-#### Add a rank table for the player by name
+- JavaScript
+- HTML
+- CSS
+- Git
+
+#
+
+# Ice boxes
+
+- Add a rank table for the player by name
+- 2 players can play together
