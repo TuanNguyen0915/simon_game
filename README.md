@@ -39,6 +39,6 @@
 
 # Next Steps
 
-#### Add dark-light
+#### Add dark-light mode
 
-#### Make it playable in mobile
+#### Add a rank table for the player by name
