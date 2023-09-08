@@ -120,6 +120,7 @@ function playerClick(evt) {
         }, 200 / speedUp)
     }
     else if (isGameOn) {
+        //* Compare the last element in playerSequence and ComputerSequence
         playerSequence.push(evt.target.id)
         let lastIdx = playerSequence.length - 1
         compare(computerSequence[lastIdx], playerSequence[lastIdx])
@@ -129,19 +130,12 @@ function playerClick(evt) {
     else if (!isGameOn) deactivateButton()
 }
 
-
 function compare(computer, player) {
     if (player != computer) gameOver()
     return
 }
 
-function playSounds(btnColor) {
-    //* Play the button color corresponding button color
-    if (btnColor === 'red') gameSounds.red()
-    else if (btnColor === 'blue') gameSounds.blue()
-    else if (btnColor === 'yellow') gameSounds.yellow()
-    else if (btnColor === 'green') gameSounds.green()
-}
+
 function nextRound() {
     /*
     * Increase level, and re-render the main loop
@@ -177,6 +171,14 @@ function gameOver() {
     speedUp = 1
     computerSequence = []
     playerSequence = []
+}
+
+function playSounds(btnColor) {
+    //* Play the button color corresponding button color
+    if (btnColor === 'red') gameSounds.red()
+    else if (btnColor === 'blue') gameSounds.blue()
+    else if (btnColor === 'yellow') gameSounds.yellow()
+    else if (btnColor === 'green') gameSounds.green()
 }
 
 function handleNavbar() {
