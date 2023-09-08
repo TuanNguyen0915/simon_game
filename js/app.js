@@ -4,7 +4,7 @@ const colors = ["green", "red", "yellow", "blue"]
 let computerSequence = [], playerSequence = []
 let level = 1, isGameOn = false, speedUp = 1, mode = "normal"
 
-/********************* Document Element *********************/
+/********************* Cached Element References *********************/
 const startGameEle = document.querySelector("#message-content")
 const navbarEle = document.querySelector(".navbar")
 const gameButtons = document.querySelectorAll(".game-button")
@@ -12,7 +12,7 @@ const gameOptionMode = document.querySelectorAll(".game-option-mode")
 const gameRuleEles = document.querySelectorAll(".gr-h1")
 const gameRuleDecsEles = document.querySelectorAll(".gr-desc")
 
-/********************* Event Listener *********************/
+/********************* Event Listeners *********************/
 startGameEle.addEventListener("click", startGame)
 navbarEle.addEventListener("click", handleNavbar)
 
@@ -28,7 +28,6 @@ gameRuleEles.forEach((el, idx) => {
     el.addEventListener("click", () => {
         document.querySelector(".gr-h1.gr-active").classList.remove("gr-active")
         el.classList.add("gr-active")
-
         document.querySelector(".gr-desc.show-content").classList.remove("show-content")
         gameRuleDecsEles[idx].classList.add("show-content")
     })
@@ -47,7 +46,6 @@ gameOptionMode.forEach(option => option.addEventListener("click", (evt) => {
     level = 1, isGameOn = false, speedUp = 1
     startGameEle.addEventListener("click", startGame)
 }))
-
 
 /********************* Function *********************/
 
